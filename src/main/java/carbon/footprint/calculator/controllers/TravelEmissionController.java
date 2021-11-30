@@ -24,7 +24,7 @@ public class TravelEmissionController {
 
     private final TravelEmissionService service;
 
-    @ApiOperation(value = "calculates the emission of CO2e/yr based on distance and model of transport")
+    @ApiOperation(value = "calculates emissions of CO2e per year based on distance and mode of transport")
     @GetMapping
     public ResponseEntity<?> calculate(@Validated @NotNull BigDecimal amount, @Validated @NotNull OptionsTravelEnum type) {
         return ResponseEntity.ok(service.calculate(amount, type));

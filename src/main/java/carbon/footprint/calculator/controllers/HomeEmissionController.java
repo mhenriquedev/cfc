@@ -27,25 +27,25 @@ public class HomeEmissionController {
 
     private final HomeEmissionService service;
 
-    @ApiOperation(value = "calculates the estimated pounds of CO2/year emitted based on natural gas consumption")
+    @ApiOperation(value = "calculates the estimated pounds of CO2 per year emitted based on household natural gas consumption")
     @GetMapping(value = "/natural-gas")
     public ResponseEntity<?> naturalGas(@Validated @NotNull BigDecimal amount, @Validated @NotNull OptionsNaturalGasEnum type) {
         return ResponseEntity.ok(service.calculateNaturalGas(amount, type));
     }
 
-    @ApiOperation(value = "calculates the estimated pounds of CO2/year emitted based on electricity consumption")
+    @ApiOperation(value = "calculates the estimated pounds of CO2 per year emitted based on household electricity consumption")
     @GetMapping(value = "/electricity")
     public ResponseEntity<?> electricity(@Validated @NotNull BigDecimal amount, @Validated @NotNull OptionsElectricityEnum type) {
         return ResponseEntity.ok(service.calculateElectricity(amount, type));
     }
 
-    @ApiOperation(value = "calculates the estimated pounds of CO2/year emitted based on fuel oil consumption")
+    @ApiOperation(value = "calculates the estimated pounds of CO2 per year emitted based on household fuel oil consumption")
     @GetMapping(value = "/fuel-oil")
     public ResponseEntity<?> fuelOil(@Validated @NotNull BigDecimal amount, @Validated @NotNull OptionsFuelOilEnum type) {
         return ResponseEntity.ok(service.calculateFuelOil(amount, type));
     }
 
-    @ApiOperation(value = "calculates the estimated pounds of CO2/year emitted based on propane consumption")
+    @ApiOperation(value = "calculates the estimated pounds of CO2 per year emitted based on household propane consumption")
     @GetMapping(value = "/propane")
     public ResponseEntity<?> propane(@Validated @NotNull BigDecimal amount, @Validated @NotNull OptionsPropaneEnum type) {
         return ResponseEntity.ok(service.calculatePropane(amount, type));
